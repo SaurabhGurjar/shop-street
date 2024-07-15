@@ -6,12 +6,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "test": "vitest",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write ./src"
   },
   "dependencies": {
+    "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.1",
     "styled-components": "^6.1.11"
   },
   "browserlist": [
@@ -23,13 +27,20 @@
     "@babel/cli": "^7.24.8",
     "@babel/core": "^7.24.8",
     "@babel/preset-env": "^7.24.8",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
     "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
-    "vite": "^5.3.1"
+    "jsdom": "^24.1.0",
+    "prettier": "3.3.3",
+    "vite": "^5.3.1",
+    "vitest": "^2.0.2"
   }
 }
