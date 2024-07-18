@@ -4,6 +4,7 @@ import { LiaHeart } from 'react-icons/lia';
 import { RiSearchLine } from 'react-icons/ri';
 import { IoBagOutline } from 'react-icons/io5';
 import Logo from '../components/Logo';
+import Button from '../components/Button';
 
 const navIconWidth = '20px';
 const navIconHeight = '20px';
@@ -67,7 +68,7 @@ function NavBar() {
           <Link route="/" icon={<Search />} />
           <Link route="/" icon={<Favourite />} />
           <Link route="/" icon={<ShoppingBag />} />
-          <Link text="Login" route="/login" isButton={true} />
+          <Button text="Login" route="/login" />
         </nav>
       </Wrapper>
     </NavContainer>
