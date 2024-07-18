@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const StyledButton = styled.button`
+const StyledButton = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,8 +12,8 @@ const StyledButton = styled.button`
   border-radius: 6px;
   border: none;
   color: #fff;
-  font-size: 14px;
-
+  font-size: 16px;
+  text-decoration: none;
   &:hover {
     color: #000;
     background-color: #fff;
@@ -25,9 +26,9 @@ const StyledButton = styled.button`
   }
 `;
 
-function Button({ text, icon, onClick }) {
+function Button({ text, icon, route }) {
   return (
-    <StyledButton onClick={onClick}>
+    <StyledButton to={route}>
       {text ? text : ''}
       {icon ? <span>{icon}</span> : ''}
     </StyledButton>
@@ -37,7 +38,7 @@ function Button({ text, icon, onClick }) {
 Button.propTypes = {
   text: PropTypes.string,
   icon: PropTypes.element,
-  onClick: PropTypes.func,
+  route: PropTypes.string,
 };
 
 export default Button;
