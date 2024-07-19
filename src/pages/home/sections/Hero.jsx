@@ -1,12 +1,11 @@
 import Button from '../../../components/Button';
 import styled from 'styled-components';
-import banner from '../assets/images/hero-banner.jpg';
+import banner from '../../../assets/images/hero-banner.jpg';
 import { LiaArrowRightSolid } from 'react-icons/lia';
 
 const HeroContainer = styled.section`
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
   justify-content: center;
   align-items: flex-start;
   padding: 10em;
@@ -17,6 +16,7 @@ const HeroContainer = styled.section`
   background: url(${banner});
   background-size: auto;
   background-repeat: no-repeat;
+  margin-top: -200px;
 `;
 const TextWrapper = styled.div`
   display: flex;
