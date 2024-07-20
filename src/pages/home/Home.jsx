@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import NavBar from '../../sections/NavigationBar';
 import HeroSection from './sections/Hero';
 import Category from './sections/Category';
+import Bestseller from './sections/Bestseller';
 
 const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 200px;
+  gap: 150px;
 `;
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <NavBar />
       <HeroSection />
       <Category />
+      <Bestseller />
     </MainContainer>
   );
 }
