@@ -4,6 +4,7 @@ import NavBar from '../../sections/NavigationBar';
 import HeroSection from './sections/Hero';
 import Category from './sections/Category';
 import Bestseller from './sections/Bestseller';
+import CustomerReview from './sections/CustomerReview';
 
 const MainContainer = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ export default function Home() {
       <HeroSection />
       <Category />
       <Bestseller />
+      <CustomerReview />
     </MainContainer>
   );
 }
