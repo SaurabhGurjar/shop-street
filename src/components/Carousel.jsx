@@ -2,7 +2,6 @@ import { useRef } from 'react';
 
 import { PropTypes } from 'prop-types';
 import styled from 'styled-components';
-import Button from './Button';
 import { BiLeftArrowAlt } from 'react-icons/bi';
 import { BiRightArrowAlt } from 'react-icons/bi';
 
@@ -12,6 +11,7 @@ const CarouselContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   align-items: center;
   overflow: hidden;
+  width: 100%;
   gap: 50px;
 `;
 
@@ -45,7 +45,7 @@ const ControlsButton = styled.button`
   font-size: 24px;
 `;
 
-const ChildrenWrapper = styled.div`
+const CardWrapper = styled.div`
   overflow-x: scroll;
   display: flex;
   flex: 0 0 auto;
@@ -56,47 +56,20 @@ const ChildrenWrapper = styled.div`
   grid-column: 1 / 3;
 
   &::-webkit-scrollbar {
-  display: none;
-}
-`;
-const ChildCard = styled.div`
-  display: flex;
-  flex: 0 0 auto;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 20px;
-  width: 311px;
-  height: 420px;
-  border: 1px solid #000;
-  background: url(${(props) => props.$bgi});
-  background-size: contain;
-  background-repeat: no-repeat;
-
-  > a {
-    text-align: center;
-    color: #000;
-    background-color: #fff;
-    font-size: 1.2em;
-    width: 85%;
-
-    &:hover {
-      background-color: #000;
-      color: #fff;
-    }
+    display: none;
   }
 `;
 
-function Carousel({ title, cards }) {
-  const SCROLL_VALUE = 714;
+function Carousel({ title, cards, scrollValue = 560 }) {
   const cardContainer = useRef(null);
 
   const handleLeft = () => {
-    cardContainer.current.scrollLeft -= SCROLL_VALUE;
-  }
+    cardContainer.current.scrollLeft -= scrollValue;
+  };
 
   const handleRight = () => {
-    cardContainer.current.scrollLeft += SCROLL_VALUE;
-  }
+    cardContainer.current.scrollLeft += scrollValue;
+  };
 
   return (
     <CarouselContainer>
@@ -109,24 +82,17 @@ function Carousel({ title, cards }) {
           <BiRightArrowAlt />
         </ControlsButton>
       </ControlBtnWrapper>
-      <ChildrenWrapper ref={cardContainer}>
-        {cards
-          ? cards.map((cat) => {
-              return (
-                <ChildCard key={cat.id} $bgi={cat.image}>
-                  <Button text={cat.name} />
-                </ChildCard>
-              );
-            })
-          : 'No items in slider'}
-      </ChildrenWrapper>
+      <CardWrapper ref={cardContainer}>
+        {cards ? cards.map((item) => item) : 'Add items in slider'}
+      </CardWrapper>
     </CarouselContainer>
   );
 }
 
 Carousel.propTypes = {
   title: PropTypes.string,
-  cards: PropTypes.array,
+  cards: PropTypes.arrayOf(PropTypes.element),
+  scrollValue: PropTypes.number,
 };
 
 export default Carousel;
