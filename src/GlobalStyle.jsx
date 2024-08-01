@@ -86,4 +86,14 @@ export default createGlobalStyle`
   font-size: 2.1em;
   font-weight: 500;
   }
+
+  a {
+  text-decoration: none;
+  color: #000;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
 `;
