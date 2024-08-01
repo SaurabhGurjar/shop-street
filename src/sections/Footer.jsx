@@ -5,10 +5,10 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { TbPhoneCall } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
-import visa from '../assets/payment/visa.png';
-import mastercard from '../assets/payment/mastercard.png';
-import paypal from '../assets/payment/paypal.png';
-import upi from '../assets/payment/upi.png';
+import visa from '../assets/icons/payment/visa.png';
+import mastercard from '../assets/icons/payment/mastercard.png';
+import paypal from '../assets/icons/payment/paypal.png';
+import upi from '../assets/icons/payment/upi.png';
 import { FaFacebook } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -64,21 +64,21 @@ const UpperSection = styled.div`
 `;
 
 const LowerSection = styled(UpperSection)`
-    align-items: center;
+  align-items: center;
   margin-top: 30px;
   padding: 10px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.7);
 
   span {
-  gap: 20px;
+    gap: 20px;
   }
 
   img {
     width: 50px;
   }
   div {
-  max-width: none;
-  width: fit-content;
+    max-width: none;
+    width: fit-content;
   }
 `;
 
@@ -115,9 +115,9 @@ export default function Footer() {
           <h4>Information</h4>
           <Link to="/">My Account</Link>
           <Link to="/">Login</Link>
-          <Link to="/">My Cart</Link>
+          <Link to="/cart">My Cart</Link>
           <Link to="/">My Wishlist</Link>
-          <Link to="/">Checkout</Link>
+          <Link to="/cart">Checkout</Link>
         </div>
         <div>
           <h4>Services</h4>
@@ -142,9 +142,15 @@ export default function Footer() {
           </p>
         </div>
         <span>
-          <Link to="/"><FaFacebook /></Link>
-          <Link to="/"><FaInstagram /></Link>
-          <Link to="/"><FaXTwitter /></Link>
+          <Link to="/">
+            <FaFacebook />
+          </Link>
+          <Link to="/">
+            <FaInstagram />
+          </Link>
+          <Link to="/">
+            <FaXTwitter />
+          </Link>
         </span>
       </LowerSection>
     </Container>
