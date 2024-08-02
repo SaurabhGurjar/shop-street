@@ -30,13 +30,13 @@ const StyledCard = styled.div`
   }
 `;
 
-function Card({ bgi, button }) {
-  return <StyledCard $bgi={bgi}>{button}</StyledCard>;
+function Card({ bgi, children }) {
+  return <StyledCard $bgi={bgi}>{children}</StyledCard>;
 }
 
 Card.propTypes = {
   bgi: PropTypes.string,
-  button: PropTypes.element,
+  children: PropTypes.element,
 };
 
 export default Card;
