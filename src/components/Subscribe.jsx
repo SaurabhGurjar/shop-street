@@ -18,7 +18,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     padding: 8px 12px;
-    border: 2px solid #FFF;
+    border: 2px solid #fff;
     border-radius: 8px;
 
     > svg {
@@ -33,10 +33,10 @@ const Container = styled.div`
     }
 
     button {
-    color: #fff;
-    display: flex;
-    border: none;
-    background: none;
+      color: #fff;
+      display: flex;
+      border: none;
+      background: none;
     }
   }
 `;
@@ -51,7 +51,7 @@ export default function Subscribe() {
       </p>
       <Form method="post" action="/event">
         <HiOutlineMail />
-        <input type="email" name="email" required autoComplete='off'/>
+        <input type="email" name="email" required autoComplete="off" />
         <button type="submit">
           <FaArrowRight />
         </button>
