@@ -16,6 +16,7 @@ const CarouselContainer = styled.div`
 `;
 
 const Title = styled.h1`
+  font-size: 1.8em;
   grid-row: 1 / 2;
   grid-column: 1 / 2;
 `;
