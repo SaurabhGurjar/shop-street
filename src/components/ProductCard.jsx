@@ -2,9 +2,13 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { IoHeartOutline } from 'react-icons/io5';
+import Price from '../pages/product/components/PriceWidget';
 
 const Container = styled.div`
+  overflow: hidden;
+  position: relative;
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -18,10 +22,17 @@ const Container = styled.div`
   }
 `;
 const ImageWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  background-color: #d3d3d3;
-  height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9edf1;
+  width: 250px;
+  height: 300px;
+  img {
+    max-width: 200px;
+    max-height: 250px;
+  }
 `;
 const TextWrapper = styled.div`
   display: flex;
@@ -33,13 +44,15 @@ const TextWrapper = styled.div`
   gap: 8px;
 
   h3 {
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: 600;
+    text-align: left;
   }
 
   p {
-    font-size: 0.9em;
+    font-size: 1em;
     color: #31363f;
+    text-align: left;
   }
 `;
 
@@ -50,11 +63,6 @@ const AmountWrapper = styled.div`
 
 const Title = styled.h3``;
 const ProductDescription = styled.p``;
-const DiscountedAmount = styled.p``;
-const Amount = styled.p`
-  text-decoration: line-through;
-  color: #d3d3d3 !important;
-`;
 
 const StyledButton = styled.button`
   position: absolute;
@@ -74,16 +82,18 @@ const AddToFavouriteButton = styled(StyledButton)`
   height: 30px;
   font-size: 1.2em;
   border-radius: 20px;
+  z-index: 10;
 `;
 
 const AddToCartButton = styled(StyledButton)`
   width: 80%;
   padding: 15px;
-  bottom: 20px;
+  top: 240px;
   left: calc((100% - 80%) / 2);
   font-size: 1em;
   border-radius: 8px;
   font-weight: 500;
+  z-index: 10;
 `;
 
 export default function Product({
@@ -94,23 +104,15 @@ export default function Product({
   currency = '₹',
   productImageLink,
   productPageURL,
+  data,
 }) {
-  const alt = name + ' ' + description;
+  const alt = name;
 
-  const handleAddToCart = () => {
-    console.log(`${name} is added to cart!`);
-  };
+  const handleAddToCart = () => {};
 
-  const handleAddToFavourite = () => {
-    const userDevice = navigator.userAgentData;
-    console.log(
-      `${name} is added to favourite!`,
-      userDevice.mobile,
-      userDevice
-    );
-  };
+  const handleAddToFavourite = () => {};
   return (
-    <Link to={productPageURL}>
+    <Link to={productPageURL} state={data}>
       <Container>
         <ImageWrapper>
           <AddToFavouriteButton
@@ -121,10 +123,7 @@ export default function Product({
           </AddToFavouriteButton>
           <AddToCartButton
             onClick={handleAddToCart}
-            $isMobile={
-              navigator.userAgentData.mobile
-              
-            }
+            $isMobile={navigator.userAgentData.mobile}
           >
             Add to cart
           </AddToCartButton>
@@ -134,14 +133,11 @@ export default function Product({
           <Title>{name}</Title>
           <ProductDescription>{description}</ProductDescription>
           <AmountWrapper>
-            <DiscountedAmount>
-              {currency}
-              {discountPrice}
-            </DiscountedAmount>
-            <Amount>
-              {currency}
-              {price}
-            </Amount>
+            <Price
+              discountedPrice={discountPrice}
+              price={price}
+              currency={currency}
+            />
           </AmountWrapper>
         </TextWrapper>
       </Container>
@@ -157,4 +153,5 @@ Product.propTypes = {
   currency: PropTypes.string.isRequired,
   productImageLink: PropTypes.string.isRequired,
   productPageURL: PropTypes.string.isRequired,
+  data: PropTypes.object,
 };
