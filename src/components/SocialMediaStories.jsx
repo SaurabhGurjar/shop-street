@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaInstagram } from 'react-icons/fa';
 import c1 from '../assets/images/c1.png';
 import { v4 as uuidv4 } from 'uuid';
-import PropTypes  from 'prop-types';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const Container = styled.div`
 `;
 const StoriesCardWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 50px;
   flex-wrap: wrap;
@@ -95,7 +95,7 @@ function SocialStories({
 }
 
 SocialStories.propTypes = {
-    stories: PropTypes.arrayOf(PropTypes.object)
-}
+  stories: PropTypes.arrayOf(PropTypes.object),
+};
 
 export default SocialStories;
