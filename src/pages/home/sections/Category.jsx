@@ -9,23 +9,23 @@ import bgImage from '../../../assets/images/c1.png';
 const demoData = [
   {
     id: uuidv4(),
-    name: 'Casual man',
+    name: 'Man Casual',
     image: bgImage,
   },
   {
     id: uuidv4(),
-    name: 'Casual woman',
+    name: 'Woman Casual',
     image: bgImage,
   },
   
   {
     id: uuidv4(),
-    name: 'Formal man',
+    name: 'Man formal',
     image: bgImage,
   },
   {
     id: uuidv4(),
-    name: 'Formal Woman',
+    name: 'Women formal',
     image: bgImage,
   },
  
