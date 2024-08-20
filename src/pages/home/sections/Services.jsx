@@ -42,7 +42,8 @@ function Services({
   return (
     <Container>
       {services.map((item) => (
-        <Service key={uuidv4()}
+        <Service
+          key={uuidv4()}
           icon={item.icon}
           title={item.title}
           description={item.description}
@@ -53,7 +54,7 @@ function Services({
 }
 
 Services.propTypes = {
-    services: PropTypes.arrayOf(PropTypes.object),
-}
+  services: PropTypes.arrayOf(PropTypes.object),
+};
 
 export default Services;

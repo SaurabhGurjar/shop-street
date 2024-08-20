@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import MainContainer from '../../components/MainContainer';
 import NavBar from '../../sections/NavigationBar';
 import HeroSection from './sections/Hero';
 import Category from './sections/Category';
@@ -7,14 +6,7 @@ import Bestseller from './sections/Bestseller';
 import CustomerReview from './sections/CustomerReview';
 import Stories from './sections/Stories';
 import Services from './sections/Services';
-
-const MainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 150px;
-`;
+import Footer from '../../sections/Footer';
 
 export default function Home() {
   return (
@@ -26,6 +18,7 @@ export default function Home() {
       <CustomerReview />
       <Stories />
       <Services />
+      <Footer />
     </MainContainer>
   );
 }

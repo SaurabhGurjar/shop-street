@@ -1,4 +1,4 @@
-import Button from '../../../components/Button';
+import LinkButton from '../../../components/Button';
 import styled from 'styled-components';
 import banner from '../../../assets/images/hero-banner.jpg';
 import { LiaArrowRightSolid } from 'react-icons/lia';
@@ -8,7 +8,7 @@ const HeroContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 10em;
+  padding: 100px;
   max-width: 1780px;
   max-height: 820px;
   width: 100vw;
@@ -16,33 +16,34 @@ const HeroContainer = styled.section`
   background: url(${banner});
   background-size: auto;
   background-repeat: no-repeat;
-  margin-top: -200px;
+  margin-top: -120px;
 `;
 const TextWrapper = styled.div`
   display: flex;
   height: fit-content;
   width: fit-content;
   flex-direction: column;
-  gap: 0.5rem;
 `;
 const Title = styled.h1`
-  font-size: 64px;
+  font-size: 4em;
   font-weight: bold;
+  margin: 0;
 `;
 
 const SuperTitle = styled.h2`
-  font-size: 42px;
+  font-size: 3em;
   font-weight: 400;
+  margin: 0;
 `;
 
 const SubTitle = styled.h3`
-  font-size: 32px;
+  font-size: 1.2em;
   font-weight: 400;
   margin-bottom: 20px;
 `;
 
-const ShopButton = styled(Button)`
-  font-size: 22px;
+const ShopButton = styled(LinkButton)`
+  font-size: 1em;
 `;
 
 export default function HeroSection() {

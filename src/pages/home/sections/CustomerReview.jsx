@@ -58,10 +58,10 @@ const demoData = [
 ];
 export default function CustomerReview() {
   const [review, setReview] = useState(null);
+  const SCROLL_VALUE = Math.floor(window.screen.width * 0.78 + 50);
 
   useEffect(() => {
-    const data = demoData.map((item) => item);
-    setReview(data);
+    setReview(demoData);
   }, []);
 
   const Cards = review
@@ -78,7 +78,11 @@ export default function CustomerReview() {
 
   return (
     <CustomerReviewSection>
-      <Carousel title="What our Customer say's" cards={Cards} />
+      <Carousel
+        title="What our Customer say's"
+        cards={Cards}
+        scrollValue={SCROLL_VALUE}
+      />
     </CustomerReviewSection>
   );
 }
